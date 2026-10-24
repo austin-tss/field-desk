@@ -119,3 +119,5 @@ body.theme-christmas .amb.phr{color:#fff;text-shadow:0 0 8px #dc2626,0 0 16px #1
 .amb.awitch{left:0;top:0;font-size:0;z-index:3;filter:drop-shadow(0 0 8px rgba(16,185,129,.55))}.amb.awitch svg{overflow:visible}
 .amb.wspk{font-size:16px;animation:spk 1.3s forwards}
 @media(prefers-reduced-motion:reduce){#rdeco *{animation:none!important}}
+
+.amb.awitch{cursor:pointer}@media(max-width:1099px){.amb.awitch{display:none!important}}
