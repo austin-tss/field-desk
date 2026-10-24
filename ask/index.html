@@ -33,7 +33,7 @@ button.go:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(29,78,216
 <span class="chip">Does this PO have a web order yet?</span>
 </div>
 <label for="q">Your question</label>
-<textarea id="q" placeholder="e.g. Where's the tracking for vendor PO 1037646?"></textarea>
+<div style="position:relative"><textarea id="q" placeholder="e.g. Where's the tracking for vendor PO 1037646?"></textarea><button type="button" id="mic" title="Speak your question" style="position:absolute;right:10px;bottom:12px;width:40px;height:40px;border-radius:50%;border:0;background:linear-gradient(135deg,#1d4ed8,#0ea5e9);color:#fff;font-size:18px;cursor:pointer;box-shadow:0 4px 10px rgba(29,78,216,.3)">&#127908;</button></div><div id="micmsg" class="note" style="margin-top:6px;display:none"></div>
 <label for="p">Vendor PO (preferred)</label><input id="p" placeholder="e.g. 1037646">
 <label>Where to check</label><div class="dist"><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="D&H" style="width:auto;margin:0">D&amp;H</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="Synnex" style="width:auto;margin:0">Synnex</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="Ingram" style="width:auto;margin:0">Ingram</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="CRM" style="width:auto;margin:0">CRM</label></div><p class="note" style="margin-top:6px">CRM questions (like a district's order history) take a little longer, usually 5 to 10 minutes. Please don't use this page for urgent requests.</p>
 <button class="go" id="go">Send question</button>
@@ -45,4 +45,10 @@ go.onclick=()=>{const t=q.value.trim();if(!t){q.focus();return}
 let b=t;if(p.value.trim())b+="\n\nVendor PO: "+p.value.trim();var dv=[...document.querySelectorAll('input[name=dist]:checked')].map(x=>x.value).join(", ");if(dv)b+=(p.value.trim()?"\n":"\n\n")+"Check: "+dv;
 b+="\n\n(sent from Ask Inside Assistant)";
 location.href="mailto:astinson@howard.com?subject=bot&body="+encodeURIComponent(b);};
-</script></body></html>
+</script><script>(function(){var R=window.SpeechRecognition||window.webkitSpeechRecognition,b=document.getElementById('mic'),m=document.getElementById('micmsg'),q=document.getElementById('q');
+if(!R){b.onclick=function(){m.style.display='block';m.textContent="Voice input isn't supported in this browser. Try Chrome, Edge or Safari, or use your phone keyboard's mic.";};return;}
+var r=new R(),on=false,base='';r.lang='en-US';r.interimResults=true;r.continuous=true;
+r.onresult=function(e){var t='';for(var i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;q.value=(base?base+' ':'')+t;};
+r.onend=function(){on=false;b.style.background='linear-gradient(135deg,#1d4ed8,#0ea5e9)';m.style.display='none';};
+r.onerror=function(e){m.style.display='block';m.textContent='Mic error: '+e.error+'. Check that the browser has microphone permission.';};
+b.onclick=function(){if(on){r.stop();return;}base=q.value.trim();r.start();on=true;b.style.background='#dc2626';m.style.display='block';m.textContent='Listening... tap the mic again when you\'re done.';};})();</script></body></html>
