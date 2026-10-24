@@ -19,7 +19,10 @@ textarea{min-height:110px;resize:vertical}.row{display:flex;gap:12px}.row>div{fl
 button.go{margin-top:20px;width:100%;padding:14px;border:0;border-radius:12px;background:linear-gradient(90deg,var(--g),var(--g2));color:#fff;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 8px 18px rgba(29,78,216,.3);transition:.15s}
 button.go:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(29,78,216,.38)}
 .note{font-size:13px;color:#5b6b85;margin-top:14px;line-height:1.5}
-</style></head><body><div class="wrap">
+</style></head><body><div id="gate" style="position:fixed;inset:0;z-index:99;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0b1f4d,#1d4ed8)"><form id="gf" style="background:#fff;border-radius:18px;padding:28px;width:300px;text-align:center;box-shadow:0 18px 40px rgba(0,0,0,.3)"><div style="font-size:28px">&#128274;</div><div style="font-weight:700;color:#0b1f4d;margin:6px 0 14px">Enter passcode</div><input id="gc" type="password" inputmode="numeric" autocomplete="off" style="text-align:center;font-size:20px;letter-spacing:6px"><div id="ge" style="color:#dc2626;font-size:13px;min-height:18px;margin-top:6px"></div><button class="go" style="margin-top:8px">Unlock</button></form></div>
+<script>(function(){var H="120c921ffa0261995b5bb4ab93bd1f75b44718013827589be329b77e0f8f677e",g=document.getElementById('gate');if(localStorage.getItem('fdk')===H){g.remove();return}
+document.getElementById('gf').onsubmit=async function(e){e.preventDefault();var v=document.getElementById('gc').value.trim();var d=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(v));var x=[...new Uint8Array(d)].map(b=>b.toString(16).padStart(2,'0')).join('');if(x===H){localStorage.setItem('fdk',H);g.remove()}else{document.getElementById('ge').textContent='Wrong passcode, try again.'}};})();</script>
+<div class="wrap">
 <h1>Ask Inside Assistant – Kristin</h1>
 <p class="sub">Hi Kristin! Ask about any North Florida order: status, tracking, serials, holds, or what's still open. Include the vendor PO for the fastest answer.</p>
 <div class="card">
