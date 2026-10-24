@@ -1,3 +1,4 @@
+addEventListener("pageshow",function(e){if(e.persisted)location.reload()});
 (function(){
 var tz="America/Chicago",b=document.body;
 function parts(d){var o={};new Intl.DateTimeFormat("en-US",{timeZone:tz,year:"numeric",month:"numeric",day:"numeric"}).formatToParts(d).forEach(function(p){o[p.type]=+p.value});return o}
@@ -147,7 +148,7 @@ m.addEventListener("click",function(){if(busy)return;busy=1;var rm=matchMedia("(
 })();
 
 if(th==="halloween"){try{var key="introSeen",today=y+"-"+p.month+"-"+p.day,force=/[?&]intro=1/.test(location.search),noi=/[?&]intro=0/.test(location.search);
- if(!noi&&!matchMedia("(prefers-reduced-motion: reduce)").matches&&(force||localStorage.getItem(key)!==today)){localStorage.setItem(key,today);
+ if(!noi&&!matchMedia("(prefers-reduced-motion: reduce)").matches){try{localStorage.removeItem(key)}catch(e){}
  var ov2=document.createElement("div");ov2.id="intro";ov2.setAttribute("aria-hidden","true");
  var W=innerWidth,H=innerHeight,h='';
  var nm=(document.title.indexOf("Callie")>-1||location.pathname.indexOf("kristin")<0)?"Callie":"Kristin";
