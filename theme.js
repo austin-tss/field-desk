@@ -51,7 +51,7 @@ if(th==="halloween"){try{var key="introSeen",today=y+"-"+p.month+"-"+p.day,force
  if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&(force||localStorage.getItem(key)!==today)){localStorage.setItem(key,today);
  var ov2=document.createElement("div");ov2.id="intro";ov2.setAttribute("aria-hidden","true");
  var W=innerWidth,H=innerHeight,h='';
- [[.15,.35,"Boo! \uD83D\uDC4B"],[.5,.5,"Hi Kristin & Callie! \uD83D\uDC4B"],[.82,.28,"Happy haunting! \uD83D\uDC4B"]].forEach(function(a,i){h+='<div class="sp" style="left:'+(a[0]*100)+'%;--y:'+Math.round(a[1]*H)+'px;animation-delay:'+(i*.25)+'s">\uD83D\uDD77\uFE0F<div class="wave">'+(i===1?(document.title.indexOf("Callie")>-1||location.pathname.indexOf("kristin")<0?"Hi Callie! \uD83D\uDC4B":"Hi Kristin! \uD83D\uDC4B"):a[2])+'</div></div>'});
+ [[.15,.35,"Boo! \uD83D\uDC4B"],[.5,.5,"Hi Kristin & Callie! \uD83D\uDC4B"],[.82,.28,"Happy haunting! \uD83D\uDC4B"]].forEach(function(a,i){h+='<div class="sp'+(i===1?' big':'')+'" style="left:'+(a[0]*100)+'%;--y:'+Math.round(a[1]*H)+'px;animation-delay:'+(i*.25)+'s">\uD83D\uDD77\uFE0F<div class="wave">'+(i===1?(document.title.indexOf("Callie")>-1||location.pathname.indexOf("kristin")<0?"Hi Callie! \uD83D\uDC4B":"Hi Kristin! \uD83D\uDC4B"):a[2])+'</div></div>'});
  h+='<div class="cr">\uD83D\uDD77\uFE0F</div><div class="cr" style="bottom:4%;animation-delay:.8s;left:-40px">\uD83D\uDD77\uFE0F</div>';
  h+='<div class="witch">\uD83E\uDDD9\u200D\u2640\uFE0F</div><div class="skip">Tap anywhere to skip</div>';
  ov2.innerHTML=h;b.appendChild(ov2);
