@@ -100,6 +100,7 @@ var GWS='<svg viewBox="0 0 120 170" width="100%"><defs><linearGradient id="gwg" 
 +'<g fill="#fde68a" stroke="#eab308" stroke-width="1"><circle cx="46" cy="38" r="6"/><circle cx="44" cy="49" r="6"/><circle cx="47" cy="59" r="5"/><circle cx="74" cy="38" r="6"/><circle cx="76" cy="49" r="6"/><circle cx="73" cy="59" r="5"/><circle cx="52" cy="30" r="6"/><circle cx="68" cy="30" r="6"/><circle cx="60" cy="28" r="6"/></g>'
 +'<path d="M46 26 L48 4 L53 18 L60 0 L67 18 L72 4 L74 26Z" fill="#fde047" stroke="#ca8a04" stroke-width="1.2"/><circle cx="60" cy="16" r="2.5" fill="#f472b6"/>'
 +'<g fill="#fff"><circle cx="40" cy="120" r="1.4"/><circle cx="70" cy="110" r="1.4"/><circle cx="55" cy="140" r="1.4"/><circle cx="84" cy="135" r="1.4"/><circle cx="35" cy="155" r="1.4"/></g></svg>';
+window.__WS=WS;window.__GWS=GWS;
 var GW={st:"sit",t0:performance.now(),el:null,back:0};window.__gw=GW;
 function gwSpot(){var Z=WZ("R"),L=WZ("L"),gw=110;var z=Z||L;if(!z)return null;gw=Math.min(110,(z[1]-z[0])*.6);return{x:z[0]+12,y:innerHeight-gw*1.42-6,w:gw}}
 function gwEl(){if(!GW.el||!GW.el.isConnected){var e=GW.el=document.createElement("div");e.className="amb gwitch";e.setAttribute("aria-hidden","true");e.innerHTML='<div class="gwb"></div><div class="gws">Popular! \u2728</div>'+GWS;b.appendChild(e);
@@ -139,7 +140,7 @@ m.innerHTML='<svg viewBox="0 0 120 110" width="100%"><g class="wl"><path d="M44 
 +'<circle cx="40" cy="34" r="8" fill="#2563eb"/><circle cx="80" cy="34" r="8" fill="#2563eb"/><circle cx="40" cy="34" r="4" fill="#bfdbfe"/><circle cx="80" cy="34" r="4" fill="#bfdbfe"/>'
 +'<circle cx="60" cy="36" r="19" fill="#2563eb"/><ellipse cx="60" cy="41" rx="13" ry="12" fill="#bfdbfe"/><circle cx="54" cy="35" r="2.6" fill="#111"/><circle cx="66" cy="35" r="2.6" fill="#111"/><path d="M54 46 Q60 50 66 46" stroke="#1e3a8a" stroke-width="2" fill="none"/>'
 +'<path d="M50 20 L52 10 L68 10 L70 20Z" fill="#b91c1c"/><rect x="49" y="18" width="22" height="3" fill="#facc15"/></svg>';
-h1.appendChild(m);var busy=0;
+h1.appendChild(m);try{if(window.__WS&&window.__GWS){var pt=document.createElement("span");pt.className="ptrio";pt.setAttribute("aria-hidden","true");pt.innerHTML='<span class="pw">'+window.__WS+'</span><span class="pg">'+window.__GWS.replace(/gwg/g,"gwgp")+'</span>';h1.appendChild(pt)}}catch(e){}var busy=0;
 m.addEventListener("click",function(){if(busy)return;busy=1;var rm=matchMedia("(prefers-reduced-motion: reduce)").matches,r=m.getBoundingClientRect(),f=m.cloneNode(true);
  f.style.cssText="position:fixed;left:"+r.left+"px;top:"+r.top+"px;width:"+r.width+"px;margin:0;z-index:70;transform-origin:50% 50%";document.body.appendChild(f);m.style.visibility="hidden";
  var sc=Math.min(16,innerWidth*.65/r.width,innerHeight*.65/r.height),dx=innerWidth/2-(r.left+r.width/2),dy=innerHeight/2-(r.top+r.height/2),C="translate("+dx+"px,"+dy+"px) scale("+sc+")";
