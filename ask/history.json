@@ -4,8 +4,8 @@
   "date": "2026-10-24",
   "question": "Show me the last order for Ware County",
   "check": "CRM",
-  "status": "⏳ In progress",
-  "summary": "Pulling Ware County's most recent order from the CRM.",
-  "answer": ""
+  "status": "✅ Finished",
+  "summary": "Last Ware County order: Oct 5, 2026, Howard #589756, PO 27-000645, 5 Acer CXI6, $3,548.75. Open, nothing shipped yet.",
+  "answer": "Most recent order for Ware County Schools (CRM # W00305): ordered October 5, 2026. Howard order #589756 (quote 1695456), customer PO 27-000645. Items: Acer CXI6 x5. Amount $3,548.75. Status: Open, 0 shipped so far. The ship hold was released 10/8 once the Google form came in."
  }
 ]
