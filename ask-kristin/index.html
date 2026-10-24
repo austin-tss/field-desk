@@ -1,18 +1,24 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ask Inside Assistant – Kristin</title>
 <style>
-:root{--g:#0f5132;--bg:#f5f7f6}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:#1c2321}
-.wrap{max-width:640px;margin:0 auto;padding:28px 18px}
-h1{margin:0 0 4px;font-size:26px;color:var(--g)}p.sub{margin:0 0 22px;color:#55615c}
-.card{background:#fff;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.06);padding:20px}
-label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
-input,textarea{width:100%;padding:11px 12px;border:1px solid #cfd8d4;border-radius:9px;font:inherit}
+:root{--g:#1d4ed8;--g2:#0ea5e9;--bg:#eef3fb}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:linear-gradient(160deg,#0b1f4d 0,#1d4ed8 340px,var(--bg) 340px);color:#0f172a;min-height:100vh}
+.wrap{max-width:660px;margin:0 auto;padding:40px 18px}
+h1{margin:0 0 6px;font-size:30px;color:#fff;letter-spacing:-.5px}h1::before{content:"\26A1  ";}
+p.sub{margin:0 0 26px;color:#cfe0ff;line-height:1.5}
+.card{background:#fff;border-radius:18px;box-shadow:0 18px 40px rgba(11,31,77,.22);padding:26px;border-top:5px solid var(--g2)}
+label{display:block;font-weight:650;font-size:14px;margin:16px 0 7px;color:#0b1f4d}
+input,textarea{width:100%;padding:12px 13px;border:1.5px solid #d4def0;border-radius:11px;font:inherit;transition:.15s}
+input:focus,textarea:focus{outline:0;border-color:var(--g);box-shadow:0 0 0 4px rgba(29,78,216,.15)}
+input[type=checkbox]{accent-color:var(--g);width:17px!important;height:17px}
 textarea{min-height:110px;resize:vertical}.row{display:flex;gap:12px}.row>div{flex:1}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.chip{border:1px solid #b9d3c7;background:#eef6f2;color:var(--g);border-radius:999px;padding:7px 12px;font-size:13px;cursor:pointer}
-button.go{margin-top:18px;width:100%;padding:13px;border:0;border-radius:10px;background:var(--g);color:#fff;font-size:16px;font-weight:600;cursor:pointer}
-.note{font-size:13px;color:#6b7772;margin-top:14px;line-height:1.45}
+.chip{border:1px solid #bfd3fb;background:#eaf1ff;color:var(--g);border-radius:999px;padding:8px 13px;font-size:13px;cursor:pointer;transition:.15s}
+.chip:hover{background:var(--g);color:#fff;border-color:var(--g)}
+.dist{background:#f5f8ff;border:1px solid #dbe5fb;border-radius:11px;padding:11px 13px}
+button.go{margin-top:20px;width:100%;padding:14px;border:0;border-radius:12px;background:linear-gradient(90deg,var(--g),var(--g2));color:#fff;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 8px 18px rgba(29,78,216,.3);transition:.15s}
+button.go:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(29,78,216,.38)}
+.note{font-size:13px;color:#5b6b85;margin-top:14px;line-height:1.5}
 </style></head><body><div class="wrap">
 <h1>Ask Inside Assistant – Kristin</h1>
 <p class="sub">Hi Kristin! Ask about any North Florida order: status, tracking, serials, holds, or what's still open. Include the vendor PO for the fastest answer.</p>
