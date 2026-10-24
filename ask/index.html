@@ -15,7 +15,7 @@ button.go{margin-top:18px;width:100%;padding:13px;border:0;border-radius:10px;ba
 .note{font-size:13px;color:#6b7772;margin-top:14px;line-height:1.45}
 </style></head><body><div class="wrap">
 <h1>Ask Order Tracker</h1>
-<p class="sub">Hi Callie! Ask about any South Georgia order: status, tracking, serials, holds, or what's still open.</p>
+<p class="sub">Hi Callie! Ask about any South Georgia order: status, tracking, serials, holds, or what's still open. Include the vendor PO for the fastest answer.</p>
 <div class="card">
 <label>Quick questions</label>
 <div class="chips">
@@ -23,22 +23,19 @@ button.go{margin-top:18px;width:100%;padding:13px;border:0;border-radius:10px;ba
 <span class="chip">Has this order been delivered?</span>
 <span class="chip">Why is this order on hold?</span>
 <span class="chip">Send me the serial numbers for this order.</span>
-<span class="chip">What orders are still open for this district?</span>
-<span class="chip">Which POs still need a web order?</span>
+<span class="chip">What's still open on this PO?</span>
+<span class="chip">Does this PO have a web order yet?</span>
 </div>
 <label for="q">Your question</label>
-<textarea id="q" placeholder="e.g. Where is tracking for the Colquitt Chromebooks?"></textarea>
-<div class="row">
-<div><label for="d">District / school (optional)</label><input id="d" placeholder="e.g. Colquitt County"></div>
-<div><label for="p">PO, order # or vendor PO (optional)</label><input id="p" placeholder="e.g. 590633 or 1037646"></div>
-</div>
+<textarea id="q" placeholder="e.g. Where's the tracking for vendor PO 1037646?"></textarea>
+<label for="p">Vendor PO (preferred)</label><input id="p" placeholder="e.g. 1037646">
 <button class="go" id="go">Send question</button>
 <p class="note">This opens an email from you, with the subject <b>bot</b>, already filled in. Just press Send. Order Tracker reads it, checks the Orders sheet and the distributor portals, and emails you the answer, usually within a few minutes during the workday.</p>
 </div></div>
 <script>
 document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{q.value=c.textContent;q.focus()});
 go.onclick=()=>{const t=q.value.trim();if(!t){q.focus();return}
-let b=t;if(d.value.trim())b+="\n\nDistrict/school: "+d.value.trim();if(p.value.trim())b+="\nPO/order #: "+p.value.trim();
+let b=t;if(p.value.trim())b+="\n\nVendor PO: "+p.value.trim();
 b+="\n\n(sent from Ask Order Tracker)";
 location.href="mailto:astinson@howard.com?subject=bot&body="+encodeURIComponent(b);};
 </script></body></html>
