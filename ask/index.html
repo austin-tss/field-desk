@@ -32,16 +32,7 @@ button.go:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(29,78,216
 <li>Build pipelines, like open quotes and upcoming orders by district</li>
 <li>Enter CRM notes for you (they'll show as entered by Austin)</li>
 <li style="color:#64748b">Smartsheet automation <span style="background:#eaf1ff;color:#1d4ed8;border-radius:999px;padding:2px 9px;font-size:12px;font-weight:600">Coming soon</span></li>
-</ul><label>Quick questions</label>
-<div class="chips">
-<span class="chip">Where's the tracking for this order?</span>
-<span class="chip">Has this order been delivered?</span>
-<span class="chip">Why is this order on hold?</span>
-<span class="chip">Send me the serial numbers for this order.</span>
-<span class="chip">What's still open on this PO?</span>
-<span class="chip">Does this PO have a web order yet?</span><span class="chip">Make a spreadsheet of all vendor POs for Newline orders.</span>
-</div>
-<label for="q">Your question</label>
+</ul><label for="q">Your question</label>
 <div style="position:relative"><textarea id="q" placeholder="e.g. Where's the tracking for vendor PO 1037646?"></textarea><button type="button" id="mic" title="Speak your question" style="position:absolute;right:10px;bottom:12px;width:40px;height:40px;border-radius:50%;border:0;background:linear-gradient(135deg,#1d4ed8,#0ea5e9);color:#fff;font-size:18px;cursor:pointer;box-shadow:0 4px 10px rgba(29,78,216,.3)">&#127908;</button></div><div id="micmsg" class="note" style="margin-top:6px;display:none"></div>
 <label for="p">Vendor PO (preferred)</label><input id="p" placeholder="e.g. 1037646">
 <label>Where to check</label><div class="dist"><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="D&H" style="width:auto;margin:0">D&amp;H</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="Synnex" style="width:auto;margin:0">Synnex</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="Ingram" style="width:auto;margin:0">Ingram</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="CRM" style="width:auto;margin:0">CRM</label></div><p class="note" style="margin-top:6px">CRM questions (like a district's order history) take a little longer, usually 5 to 10 minutes. Please don't use this page for urgent requests.</p>
