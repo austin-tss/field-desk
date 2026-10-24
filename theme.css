@@ -134,7 +134,7 @@ body .amb.awitch.intro-on{display:block!important;z-index:56}
 .monkey.wings .wl,.monkey.wings .wr{transform:scale(1)}
 .monkey.flying .wl{animation:wfl .18s ease-in-out infinite alternate}.monkey.flying .wr{animation:wfr .18s ease-in-out infinite alternate}
 @keyframes wfl{to{transform:rotate(25deg)}}@keyframes wfr{to{transform:rotate(-25deg)}}
-.monkey .al{transform-origin:44px 64px}.monkey .ar{transform-origin:76px 64px}.monkey.bang .al{animation:pl .5s ease-in infinite}.monkey.bang .ar{animation:pr .5s ease-in .25s infinite both}.monkey.bang svg{animation:thump .25s ease-out infinite;transform-origin:50% 100%}
+.monkey .al{transform-origin:44px 64px}.monkey .ar{transform-origin:76px 64px}.monkey.bang .al{animation:pl .3s ease-in infinite}.monkey.bang .ar{animation:pr .3s ease-in .15s infinite both}.monkey.bang svg{animation:thump .15s ease-out infinite;transform-origin:50% 100%}
 @keyframes bng{to{transform:translate(0,-3px) scale(1.15)}}
 @media(max-width:600px){.monkey{width:40px}}
 @media(prefers-reduced-motion:reduce){.monkey *{animation:none!important;transition:none!important}}
