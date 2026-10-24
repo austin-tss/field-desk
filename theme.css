@@ -100,3 +100,22 @@ body.theme-christmas .amb.phr{color:#fff;text-shadow:0 0 8px #dc2626,0 0 16px #1
 @media(max-width:600px){#intro .skip{font-size:16px;padding:9px 18px}}
 
 #intro .skip{background:#ff7a00!important;color:#1a0a00!important;border-color:#ffd166!important;box-shadow:0 0 22px rgba(255,122,0,.95)!important}
+
+/* Right-side corner decor + ambient witch */
+#rdeco{position:fixed;top:0;height:100vh;pointer-events:none;z-index:1;overflow:hidden;display:none}
+@media(max-width:1099px){#rdeco{display:none!important}}
+#rdeco .moon{position:absolute;right:12%;top:70px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#fffbeb,#fde68a 60%,#f59e0b);box-shadow:0 0 40px rgba(253,230,138,.55);opacity:.9}
+#rdeco .mbat{position:absolute;top:110px;font-size:22px;animation:mbat 9s linear infinite}#rdeco .b2{top:140px;font-size:16px;animation-delay:-4.5s}
+@keyframes mbat{0%{right:-30px}100%{right:110%}}
+#rdeco .web{position:absolute;right:0;top:0;width:140px;transform-origin:100% 0;animation:sway 5s ease-in-out infinite alternate}
+#rdeco .wsp{position:absolute;right:46px;top:150px;font-size:22px;animation:wsp 4s ease-in-out infinite alternate}#rdeco .wsp::before{content:"";position:absolute;left:50%;bottom:100%;height:150px;width:1px;background:rgba(255,255,255,.5)}
+@keyframes sway{to{transform:rotate(4deg)}}@keyframes wsp{to{transform:translateY(40px)}}
+#rdeco .tree{position:absolute;right:4%;bottom:0;font-size:150px;line-height:1;transform-origin:bottom;animation:sway 6s ease-in-out infinite alternate}
+#rdeco .tl{position:absolute;top:-30px;font-size:22px;animation:fxfall 9s linear infinite}#rdeco .l1{right:20%}#rdeco .l2{right:45%;animation-delay:-3s}#rdeco .l3{right:70%;animation-delay:-6s}
+#rdeco .pump{position:absolute;left:8%;bottom:10px;font-size:34px}
+#rdeco .rl{position:absolute;top:0;left:0;right:0;margin:0}
+#rdeco .xtree{position:absolute;right:6%;bottom:0;font-size:160px;line-height:1}#rdeco .gifts{position:absolute;left:6%;bottom:8px;font-size:36px}
+#rdeco .star{position:absolute;right:calc(6% + 62px);bottom:150px;font-size:34px;animation:tw 1.6s ease-in-out infinite;filter:drop-shadow(0 0 10px #facc15)}
+.amb.awitch{left:0;top:0;font-size:0;z-index:3;filter:drop-shadow(0 0 8px rgba(16,185,129,.55))}.amb.awitch svg{overflow:visible}
+.amb.wspk{font-size:16px;animation:spk 1.3s forwards}
+@media(prefers-reduced-motion:reduce){#rdeco *{animation:none!important}}
