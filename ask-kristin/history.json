@@ -4,7 +4,7 @@
   "date": "2026-10-24",
   "question": "Send me a spreadsheet with all Newline orders for Wakulla County this year. I need the vendor PO and type of panel to enter spiffs.",
   "check": "CRM",
-  "status": "Done",
+  "status": "✅ Finished",
   "summary": "2026 Newline orders for Wakulla: 19 orders, 41 units, $65,537 total. Spreadsheet sent to your Howard email.",
   "answer": "Spreadsheet: Wakulla_Newline_Orders_2026.xlsx (from the CRM).\nNotes: #591420 (10/23) has no vendor PO yet, on hold for a bill-to/ship-to mismatch. #567718's PO shows 3 stands but the quote says 2."
  }
