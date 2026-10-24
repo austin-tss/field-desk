@@ -1,3 +1,11 @@
 [
- {"id":"C-1","date":"2026-10-24","question":"Show me the last order for Ware County","check":"CRM","status":"In progress","summary":"Pulling Ware County's most recent order from the CRM.","answer":""}
+ {
+  "id": "C-1",
+  "date": "2026-10-24",
+  "question": "Show me the last order for Ware County",
+  "check": "CRM",
+  "status": "⏳ In progress",
+  "summary": "Pulling Ware County's most recent order from the CRM.",
+  "answer": ""
+ }
 ]
