@@ -98,3 +98,5 @@ body.theme-christmas .amb.phr{color:#fff;text-shadow:0 0 8px #dc2626,0 0 16px #1
 #intro .skip{left:50%;right:auto;bottom:18%;transform:translateX(-50%);white-space:nowrap;background:rgba(10,0,20,.82);color:#fff;font:800 18px system-ui,sans-serif;padding:10px 22px;border-radius:999px;border:2px solid #f97316;box-shadow:0 0 14px rgba(249,115,22,.75);opacity:1;z-index:5;animation:skp 1.4s ease-in-out infinite}
 @keyframes skp{50%{box-shadow:0 0 26px rgba(249,115,22,1);transform:translateX(-50%) scale(1.06)}}
 @media(max-width:600px){#intro .skip{font-size:16px;padding:9px 18px}}
+
+#intro .skip{background:#ff7a00!important;color:#1a0a00!important;border-color:#ffd166!important;box-shadow:0 0 22px rgba(255,122,0,.95)!important}
