@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ask Order Tracker – Kristin</title>
+<style>
+:root{--g:#0f5132;--bg:#f5f7f6}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:#1c2321}
+.wrap{max-width:640px;margin:0 auto;padding:28px 18px}
+h1{margin:0 0 4px;font-size:26px;color:var(--g)}p.sub{margin:0 0 22px;color:#55615c}
+.card{background:#fff;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.06);padding:20px}
+label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
+input,textarea{width:100%;padding:11px 12px;border:1px solid #cfd8d4;border-radius:9px;font:inherit}
+textarea{min-height:110px;resize:vertical}.row{display:flex;gap:12px}.row>div{flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{border:1px solid #b9d3c7;background:#eef6f2;color:var(--g);border-radius:999px;padding:7px 12px;font-size:13px;cursor:pointer}
+button.go{margin-top:18px;width:100%;padding:13px;border:0;border-radius:10px;background:var(--g);color:#fff;font-size:16px;font-weight:600;cursor:pointer}
+.note{font-size:13px;color:#6b7772;margin-top:14px;line-height:1.45}
+</style></head><body><div class="wrap">
+<h1>Ask Order Tracker – Kristin</h1>
+<p class="sub">Hi Kristin! Ask about any North Florida order: status, tracking, serials, holds, or what's still open. Include the vendor PO for the fastest answer.</p>
+<div class="card">
+<label>Quick questions</label>
+<div class="chips">
+<span class="chip">Where's the tracking for this order?</span>
+<span class="chip">Has this order been delivered?</span>
+<span class="chip">Why is this order on hold?</span>
+<span class="chip">Send me the serial numbers for this order.</span>
+<span class="chip">What's still open on this PO?</span>
+<span class="chip">Does this PO have a web order yet?</span>
+</div>
+<label for="q">Your question</label>
+<textarea id="q" placeholder="e.g. Where's the tracking for vendor PO 1037646?"></textarea>
+<label for="p">Vendor PO (preferred)</label><input id="p" placeholder="e.g. 1037646">
+<label>Distributor</label><div class="dist"><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="D&H" style="width:auto;margin:0">D&amp;H</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="Synnex" style="width:auto;margin:0">Synnex</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="Ingram" style="width:auto;margin:0">Ingram</label></div>
+<button class="go" id="go">Send question</button>
+<p class="note">This opens an email from you, with the subject <b>bot</b>, already filled in. Just press Send. Order Tracker reads it, checks the Orders sheet and the distributor portals, and emails you the answer, usually within a few minutes during the workday.</p>
+</div></div>
+<script>
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{q.value=c.textContent;q.focus()});
+go.onclick=()=>{const t=q.value.trim();if(!t){q.focus();return}
+let b=t;if(p.value.trim())b+="\n\nVendor PO: "+p.value.trim();var dv=[...document.querySelectorAll('input[name=dist]:checked')].map(x=>x.value).join(", ");if(dv)b+=(p.value.trim()?"\n":"\n\n")+"Distributor: "+dv;
+b+="\n\n(sent from Ask Order Tracker)";
+location.href="mailto:astinson@howard.com?subject=bot&body="+encodeURIComponent(b);};
+</script></body></html>
