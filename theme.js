@@ -72,7 +72,7 @@ function ease(k){return k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2}
 function spark(x,y){var sp=document.createElement("div");sp.className="amb wspk";if(Wk.st==="intro")sp.style.zIndex=56,sp.style.display="block";sp.textContent="\u2726";var c=Math.random()<.5?"#10b981":"#facc15";sp.style.color=c;sp.style.textShadow="0 0 6px "+c;sp.style.left=x+"px";sp.style.top=y+"px";b.appendChild(sp);setTimeout(function(){sp.remove()},1300)}
 Wk.intro=function(){Wk.st="intro";Wk.t0=performance.now()+600;Wk.lf=Date.now();wEl().classList.add("intro-on")};
 Wk.settle=function(){if(Wk.st!=="intro")return;if(Wk.el)Wk.el.classList.remove("intro-on");if(innerWidth>=1100){Wk.spot=rightSpot();Wk.st="hover";Wk.t0=performance.now()}else{Wk.st="gone";if(Wk.el)Wk.el.style.display="none"}};
-function wTalk(now,pos,w){var d=Wk.talkEl;if(!Wk.talkT){if(d)d.style.opacity=0;return}if(!d||!d.isConnected){d=Wk.talkEl=document.createElement("div");d.className="gws wtalk";d.textContent="Defying gravity \u2728";b.appendChild(d)}var t=(now-Wk.talkT)/1000;d.style.opacity=t<.3?t/.3:t<2.6?1:Math.max(0,1-(t-2.6)/.5);d.style.left=Math.max(6,Math.min(innerWidth-190,pos[0]+w/2-60))+"px";d.style.top=Math.max(6,pos[1]-w*.4-46)+"px";if(t>3.2){Wk.talkT=0;d.style.opacity=0}}
+function wTalk(now,pos,w){var d=Wk.talkEl;if(!Wk.talkT){if(d)d.style.opacity=0;return}if(!d||!d.isConnected){d=Wk.talkEl=document.createElement("div");d.className="gws wtalk";d.textContent="Defying Gravity \u2728";b.appendChild(d)}var t=(now-Wk.talkT)/1000;d.style.opacity=t<.3?t/.3:t<2.6?1:Math.max(0,1-(t-2.6)/.5);d.style.left=Math.max(6,Math.min(innerWidth-190,pos[0]+w/2-60))+"px";d.style.top=Math.max(6,pos[1]-w*.4-46)+"px";if(t>3.2){Wk.talkT=0;d.style.opacity=0}}
 function wTick(now){requestAnimationFrame(wTick);Wk.lf=Date.now();try{
  var el=wEl();if(!wOK()){el.style.display="none";return}
  if(Wk.st==="gone"){el.style.display="none";if(innerWidth>=1100){Wk.st="hover";Wk.spot=null}return}
@@ -102,7 +102,7 @@ var GWS='<svg viewBox="0 0 120 170" width="100%"><defs><linearGradient id="gwg" 
 +'<g fill="#fff"><circle cx="40" cy="120" r="1.4"/><circle cx="70" cy="110" r="1.4"/><circle cx="55" cy="140" r="1.4"/><circle cx="84" cy="135" r="1.4"/><circle cx="35" cy="155" r="1.4"/></g></svg>';
 var GW={st:"sit",t0:performance.now(),el:null,back:0};window.__gw=GW;
 function gwSpot(){var Z=WZ("R"),L=WZ("L"),gw=110;var z=Z||L;if(!z)return null;gw=Math.min(110,(z[1]-z[0])*.6);return{x:z[0]+12,y:innerHeight-gw*1.42-6,w:gw}}
-function gwEl(){if(!GW.el||!GW.el.isConnected){var e=GW.el=document.createElement("div");e.className="amb gwitch";e.setAttribute("aria-hidden","true");e.innerHTML='<div class="gwb"></div><div class="gws">Galinda \u2728</div>'+GWS;b.appendChild(e);
+function gwEl(){if(!GW.el||!GW.el.isConnected){var e=GW.el=document.createElement("div");e.className="amb gwitch";e.setAttribute("aria-hidden","true");e.innerHTML='<div class="gwb"></div><div class="gws">Popular! \u2728</div>'+GWS;b.appendChild(e);
  e.addEventListener("click",function(){if(GW.st!=="sit")return;GW.talk=!GW.said;GW.said=1;GW.st="grow";GW.t0=performance.now()})}return GW.el}
 function gwTick(now){requestAnimationFrame(gwTick);try{var e=gwEl();if(th!=="halloween"||innerWidth<1100||document.hidden){e.style.display="none";return}
  var S=gwSpot();if(!S){e.style.display="none";return}e.style.display="block";e.style.width=S.w+"px";var bub=e.firstChild,t=(now-GW.t0)/1000,y=S.y,x=S.x,rot=0,bs=0,rm=RM.matches;
