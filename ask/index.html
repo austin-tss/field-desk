@@ -29,14 +29,14 @@ button.go{margin-top:18px;width:100%;padding:13px;border:0;border-radius:10px;ba
 <label for="q">Your question</label>
 <textarea id="q" placeholder="e.g. Where's the tracking for vendor PO 1037646?"></textarea>
 <label for="p">Vendor PO (preferred)</label><input id="p" placeholder="e.g. 1037646">
-<label for="d">Distributor</label><input id="d" list="dists" placeholder="Pick or type a distributor"><datalist id="dists"><option value="TD SYNNEX"><option value="Ingram Micro"><option value="D&amp;H"></datalist>
+<label>Distributor</label><div class="dist"><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="D&H" style="width:auto;margin:0">D&amp;H</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="Synnex" style="width:auto;margin:0">Synnex</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="Ingram" style="width:auto;margin:0">Ingram</label></div>
 <button class="go" id="go">Send question</button>
 <p class="note">This opens an email from you, with the subject <b>bot</b>, already filled in. Just press Send. Order Tracker reads it, checks the Orders sheet and the distributor portals, and emails you the answer, usually within a few minutes during the workday.</p>
 </div></div>
 <script>
 document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{q.value=c.textContent;q.focus()});
 go.onclick=()=>{const t=q.value.trim();if(!t){q.focus();return}
-let b=t;if(p.value.trim())b+="\n\nVendor PO: "+p.value.trim();var dv=document.getElementById("d").value.trim();if(dv)b+="\nDistributor: "+dv;
+let b=t;if(p.value.trim())b+="\n\nVendor PO: "+p.value.trim();var dv=[...document.querySelectorAll('input[name=dist]:checked')].map(x=>x.value).join(", ");if(dv)b+=(p.value.trim()?"\n":"\n\n")+"Distributor: "+dv;
 b+="\n\n(sent from Ask Order Tracker)";
 location.href="mailto:astinson@howard.com?subject=bot&body="+encodeURIComponent(b);};
 </script></body></html>
