@@ -32,6 +32,21 @@ for(var i=0;i<n;i++){var s=document.createElement("span");s.textContent=cfg.fx[i
  s.style.animationDuration=(10+Math.random()*12)+"s";s.style.animationDelay=(-Math.random()*20)+"s";
  s.style.setProperty("--dx",(Math.random()*120-60)+"px");s.style.setProperty("--r",(Math.random()*720-360)+"deg");fx.appendChild(s)}
 b.insertBefore(fx,b.firstChild);
+(function(){var A={halloween:[["\uD83E\uDD87","flap"],["\uD83D\uDD77\uFE0F","drop"],["\uD83D\uDC7B","drift"],["\uD83D\uDC08\u200D\u2B1B","peek"]],
+thanksgiving:[["\uD83E\uDD83","strut"],["\uD83C\uDF42\uD83C\uDF41\uD83C\uDF42","cross"]],
+christmas:[["\uD83C\uDF85\uD83D\uDEF7\uD83E\uDD8C\uD83E\uDD8C","cross"],["\u26C4\uD83D\uDC4B","wave"]]}[th];
+function zones(){var w=document.querySelector(".wrap").getBoundingClientRect(),h=document.getElementById("hist"),hr=h.getBoundingClientRect(),L=(hr.right>0&&!b.classList.contains("hclosed"))?hr.right:0,z=[];
+ if(w.left-L>=130)z.push([L+10,w.left-10]);if(innerWidth-w.right>=130)z.push([w.right+10,innerWidth-10]);return z}
+function go(){if(innerWidth<1100||matchMedia("(prefers-reduced-motion: reduce)").matches||document.hidden)return;var z=zones();if(!z.length)return;
+ var Z=z[Math.floor(Math.random()*z.length)],it=A[Math.floor(Math.random()*A.length)],e=document.createElement("div"),W=Z[1]-Z[0],k=it[1];
+ e.className="amb "+k;e.setAttribute("aria-hidden","true");e.innerHTML=(k=="cross"||k=="flap"||k=="strut")?"<i>"+it[0]+"</i>":it[0];
+ if(k=="cross"||k=="flap"||k=="strut"){e.style.left=Z[0]+"px";e.style.setProperty("--w",(W-60)+"px");e.style.top=(80+Math.random()*(innerHeight-200))+"px";e.style.maxWidth=W+"px";e.style.whiteSpace="nowrap";e.style.fontSize=(it[0].length>4?Math.min(36,W/5):40)+"px";e.classList.add("flip")}
+ else{e.style.left=(Z[0]+Math.random()*Math.max(0,W-60))+"px";e.style.top=(k=="peek"?innerHeight-50:120+Math.random()*(innerHeight-300))+"px"}
+ b.appendChild(e);setTimeout(function(){e.remove()},10000)}
+var fast=/[?&]ambient=1/.test(location.search);
+function next(){setTimeout(function(){go();next()},fast?3000:20000+Math.random()*20000)}
+setTimeout(go,fast?800:8000);next();})();
+
 if(th==="halloween"){try{var key="introSeen",today=y+"-"+p.month+"-"+p.day,force=/[?&]intro=1/.test(location.search);
  if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&(force||localStorage.getItem(key)!==today)){localStorage.setItem(key,today);
  var ov2=document.createElement("div");ov2.id="intro";ov2.setAttribute("aria-hidden","true");

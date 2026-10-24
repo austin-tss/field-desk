@@ -64,3 +64,15 @@ body.theme-christmas #fx span{color:#fff;text-shadow:0 0 3px #94a3b8}
 #intro .spk{position:absolute;font-size:18px;opacity:0;animation:spk 1.4s forwards}
 @keyframes spk{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.2) translateY(30px)}}
 #intro .skip{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#fff;font:600 13px system-ui;opacity:.8}
+/* Ambient whitespace animations (desktop only) */
+.amb{position:fixed;pointer-events:none;z-index:2;font-size:40px;line-height:1}
+@media(max-width:1099px){.amb{display:none}}@media(prefers-reduced-motion:reduce){.amb{display:none}}
+.amb.cross{animation:ambx var(--t,7s) linear forwards}@keyframes ambx{from{transform:translateX(0)}to{transform:translateX(var(--w))}}
+.amb.flap{animation:ambx var(--t,6s) linear forwards,flap .35s ease-in-out infinite alternate}@keyframes flap{to{margin-top:-14px}}
+.amb.drop::before{content:"";position:absolute;left:50%;bottom:100%;width:1px;height:100vh;background:rgba(255,255,255,.6)}
+.amb.drop{animation:ambd 6s ease-in-out forwards}@keyframes ambd{0%{transform:translateY(-100vh)}30%,75%{transform:translateY(0)}40%{transform:translateY(-12px)}100%{transform:translateY(-100vh)}}
+.amb.drift{animation:ambg 8s ease-in-out forwards}@keyframes ambg{0%{opacity:0;transform:translate(0,0)}20%,80%{opacity:.85}50%{transform:translate(30px,-40px)}100%{opacity:0;transform:translate(-10px,-90px)}}
+.amb.peek{animation:ambp 5s ease-in-out forwards}@keyframes ambp{0%,100%{transform:translateY(80px)}25%,75%{transform:translateY(0)}}
+.amb.wave{animation:ambw 6s ease-in-out forwards}@keyframes ambw{0%,100%{opacity:0;transform:scale(.6)}15%,85%{opacity:1;transform:scale(1)}30%,50%,70%{transform:rotate(-10deg)}40%,60%{transform:rotate(10deg)}}
+.amb.strut{animation:ambx var(--t,9s) linear forwards,strut .4s ease-in-out infinite alternate}@keyframes strut{to{margin-top:-6px}}
+.amb.flip{transform-origin:center}.amb.flip>i{display:inline-block;transform:scaleX(-1);font-style:normal}
