@@ -131,12 +131,12 @@ setTimeout(phrase,fast?300:4000);nextP();})();
 (function(){if(th!=="halloween"||location.pathname.indexOf("kristin")<0)return;var h1=document.querySelector("h1");if(!h1)return;
 var m=document.createElement("span");m.className="monkey";m.setAttribute("aria-hidden","true");m.title="";
 m.innerHTML='<svg viewBox="0 0 120 110" width="100%"><g class="wl"><path d="M44 52 Q10 20 2 40 Q14 44 6 54 Q20 54 12 64 Q30 62 42 62Z" fill="#94a3b8" stroke="#475569" stroke-width="1.5"/><path d="M40 56 Q20 46 10 50M40 59 Q24 56 14 60" stroke="#475569" fill="none"/></g><g class="wr"><path d="M76 52 Q110 20 118 40 Q106 44 114 54 Q100 54 108 64 Q90 62 78 62Z" fill="#94a3b8" stroke="#475569" stroke-width="1.5"/><path d="M80 56 Q100 46 110 50M80 59 Q96 56 106 60" stroke="#475569" fill="none"/></g>'
-+'<path d="M84 92 Q104 96 100 76" stroke="#6b4423" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="60" cy="74" rx="20" ry="24" fill="#6b4423"/><path d="M44 62 L60 86 L76 62 L72 96 L48 96Z" fill="#1d4ed8"/><circle cx="60" cy="76" r="2" fill="#facc15"/><circle cx="60" cy="86" r="2" fill="#facc15"/>'
-+'<ellipse cx="52" cy="100" rx="8" ry="5" fill="#6b4423"/><ellipse cx="68" cy="100" rx="8" ry="5" fill="#6b4423"/>'
-+'<g class="al"><path d="M44 66 Q34 78 50 80" stroke="#6b4423" stroke-width="7" fill="none" stroke-linecap="round"/></g><g class="ar"><path d="M76 66 Q86 78 70 80" stroke="#6b4423" stroke-width="7" fill="none" stroke-linecap="round"/></g>'
-+'<circle cx="40" cy="34" r="8" fill="#6b4423"/><circle cx="80" cy="34" r="8" fill="#6b4423"/><circle cx="40" cy="34" r="4" fill="#d6a77a"/><circle cx="80" cy="34" r="4" fill="#d6a77a"/>'
-+'<circle cx="60" cy="36" r="19" fill="#6b4423"/><ellipse cx="60" cy="41" rx="13" ry="12" fill="#d6a77a"/><circle cx="54" cy="35" r="2.6" fill="#111"/><circle cx="66" cy="35" r="2.6" fill="#111"/><path d="M54 46 Q60 50 66 46" stroke="#5b3416" stroke-width="2" fill="none"/>'
-+'<path d="M50 20 L52 10 L68 10 L70 20Z" fill="#1d4ed8"/><rect x="49" y="18" width="22" height="3" fill="#facc15"/></svg>';
++'<path d="M84 92 Q104 96 100 76" stroke="#2563eb" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="60" cy="74" rx="20" ry="24" fill="#2563eb"/><path d="M44 62 L60 86 L76 62 L72 96 L48 96Z" fill="#b91c1c"/><circle cx="60" cy="76" r="2" fill="#facc15"/><circle cx="60" cy="86" r="2" fill="#facc15"/>'
++'<ellipse cx="52" cy="100" rx="8" ry="5" fill="#2563eb"/><ellipse cx="68" cy="100" rx="8" ry="5" fill="#2563eb"/>'
++'<g class="al"><path d="M44 66 Q34 78 50 80" stroke="#2563eb" stroke-width="7" fill="none" stroke-linecap="round"/></g><g class="ar"><path d="M76 66 Q86 78 70 80" stroke="#2563eb" stroke-width="7" fill="none" stroke-linecap="round"/></g>'
++'<circle cx="40" cy="34" r="8" fill="#2563eb"/><circle cx="80" cy="34" r="8" fill="#2563eb"/><circle cx="40" cy="34" r="4" fill="#bfdbfe"/><circle cx="80" cy="34" r="4" fill="#bfdbfe"/>'
++'<circle cx="60" cy="36" r="19" fill="#2563eb"/><ellipse cx="60" cy="41" rx="13" ry="12" fill="#bfdbfe"/><circle cx="54" cy="35" r="2.6" fill="#111"/><circle cx="66" cy="35" r="2.6" fill="#111"/><path d="M54 46 Q60 50 66 46" stroke="#1e3a8a" stroke-width="2" fill="none"/>'
++'<path d="M50 20 L52 10 L68 10 L70 20Z" fill="#b91c1c"/><rect x="49" y="18" width="22" height="3" fill="#facc15"/></svg>';
 h1.appendChild(m);var busy=0;
 m.addEventListener("click",function(){if(busy)return;busy=1;var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;m.classList.add("wings");
  setTimeout(function(){m.classList.add("bang")},rm?0:700);
