@@ -16,7 +16,6 @@ button.go{margin-top:18px;width:100%;padding:13px;border:0;border-radius:10px;ba
 </style></head><body><div class="wrap">
 <h1>Ask Order Tracker – Kristin</h1>
 <p class="sub">Hi Kristin! Ask about any North Florida order: status, tracking, serials, holds, or what's still open. Include the vendor PO for the fastest answer.</p>
-<p class="note"><b>How this works:</b> Order status, tracking, and shipping questions are checked directly with the distributors. <b>CRM questions</b> (like a district's order history) are handled by regular email, working alongside three other AI assistants that check for new requests and run the CRM search, usually within about 5 minutes. This page is meant to save time on routine questions. <b>If it's urgent, please don't use this page.</b> Reach out directly instead.</p>
 <div class="card">
 <label>Quick questions</label>
 <div class="chips">
@@ -30,14 +29,14 @@ button.go{margin-top:18px;width:100%;padding:13px;border:0;border-radius:10px;ba
 <label for="q">Your question</label>
 <textarea id="q" placeholder="e.g. Where's the tracking for vendor PO 1037646?"></textarea>
 <label for="p">Vendor PO (preferred)</label><input id="p" placeholder="e.g. 1037646">
-<label>Distributor</label><div class="dist"><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="D&H" style="width:auto;margin:0">D&amp;H</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="Synnex" style="width:auto;margin:0">Synnex</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="Ingram" style="width:auto;margin:0">Ingram</label></div>
+<label>Where to check</label><div class="dist"><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="D&H" style="width:auto;margin:0">D&amp;H</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="Synnex" style="width:auto;margin:0">Synnex</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="Ingram" style="width:auto;margin:0">Ingram</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:400;margin:0 18px 0 0"><input type="checkbox" name="dist" value="CRM" style="width:auto;margin:0">CRM</label></div><p class="note" style="margin-top:6px">CRM questions (like a district's order history) take a little longer, usually 5 to 10 minutes. For anything urgent, please reach out directly.</p>
 <button class="go" id="go">Send question</button>
 <p class="note">This opens an email from you, with the subject <b>bot</b>, already filled in. Just press Send. Order Tracker reads it, checks the Orders sheet and the distributor portals, and emails you the answer, usually within a few minutes during the workday.</p>
 </div></div>
 <script>
 document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{q.value=c.textContent;q.focus()});
 go.onclick=()=>{const t=q.value.trim();if(!t){q.focus();return}
-let b=t;if(p.value.trim())b+="\n\nVendor PO: "+p.value.trim();var dv=[...document.querySelectorAll('input[name=dist]:checked')].map(x=>x.value).join(", ");if(dv)b+=(p.value.trim()?"\n":"\n\n")+"Distributor: "+dv;
+let b=t;if(p.value.trim())b+="\n\nVendor PO: "+p.value.trim();var dv=[...document.querySelectorAll('input[name=dist]:checked')].map(x=>x.value).join(", ");if(dv)b+=(p.value.trim()?"\n":"\n\n")+"Check: "+dv;
 b+="\n\n(sent from Ask Order Tracker)";
 location.href="mailto:astinson@howard.com?subject=bot&body="+encodeURIComponent(b);};
 </script></body></html>
