@@ -130,7 +130,7 @@ function nextP(){setTimeout(function(){phrase();nextP()},fast?2500:10000+Math.ra
 setTimeout(phrase,fast?300:4000);nextP();})();
 
 
-(function(){if(th!=="halloween"||location.pathname.indexOf("kristin")<0)return;var h1=document.querySelector("h1");if(!h1)return;
+(function(){if(th!=="halloween")return;var h1=document.querySelector("h1");if(!h1)return;
 var m=document.createElement("span");m.className="monkey";m.setAttribute("aria-hidden","true");m.title="";
 m.innerHTML='<svg viewBox="0 0 120 110" width="100%"><g class="wl"><path d="M44 52 Q10 20 2 40 Q14 44 6 54 Q20 54 12 64 Q30 62 42 62Z" fill="#94a3b8" stroke="#475569" stroke-width="1.5"/><path d="M40 56 Q20 46 10 50M40 59 Q24 56 14 60" stroke="#475569" fill="none"/></g><g class="wr"><path d="M76 52 Q110 20 118 40 Q106 44 114 54 Q100 54 108 64 Q90 62 78 62Z" fill="#94a3b8" stroke="#475569" stroke-width="1.5"/><path d="M80 56 Q100 46 110 50M80 59 Q96 56 106 60" stroke="#475569" fill="none"/></g>'
 +'<path d="M84 92 Q104 96 100 76" stroke="#2563eb" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="60" cy="74" rx="20" ry="24" fill="#2563eb"/><path d="M44 62 L60 86 L76 62 L72 96 L48 96Z" fill="#b91c1c"/><circle cx="60" cy="76" r="2" fill="#facc15"/><circle cx="60" cy="86" r="2" fill="#facc15"/>'
