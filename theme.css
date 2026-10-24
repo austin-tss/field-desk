@@ -1,0 +1,66 @@
+/* Seasonal themes: body.theme-halloween / theme-thanksgiving / theme-christmas */
+.wrap{position:relative;z-index:1}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+#fx span{position:absolute;top:-40px;opacity:.75;animation:fxfall linear infinite;will-change:transform}
+@keyframes fxfall{0%{transform:translate(0,-40px) rotate(0)}100%{transform:translate(var(--dx,40px),110vh) rotate(var(--r,360deg))}}
+body.theme-halloween #fx span{animation-name:fxfloat;top:auto;bottom:-40px}
+@keyframes fxfloat{0%{transform:translate(0,0)}50%{transform:translate(var(--dx,40px),-55vh)}100%{transform:translate(0,-115vh)}}
+@media(prefers-reduced-motion:reduce){#fx{display:none}}
+#cd{display:none;border-radius:14px;padding:12px 16px;margin:0 0 18px;color:#fff;text-align:center;font-weight:700}
+body[class*="theme-"] #cd{display:block}
+#cd .t{font-size:16px;margin-bottom:6px}
+#cd .n{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+#cd .n div{min-width:62px;border-radius:10px;padding:6px 8px;background:rgba(0,0,0,.35)}
+#cd .n b{display:block;font-size:24px;line-height:1.1}#cd .n small{font-size:11px;font-weight:600;opacity:.9;text-transform:uppercase;letter-spacing:.5px}
+#cd .big{font-size:24px}
+/* ---- Halloween ---- */
+body.theme-halloween{--g:#ea580c;--g2:#7c3aed;--bg:#1a1026;background:linear-gradient(135deg,#0a0a0a,#3b0764 55%,#c2410c) top/100% 330px no-repeat,var(--bg)}
+body.theme-halloween h1::before{content:"\1F383  "}body.theme-halloween h1::after{content:"  \1F987"}
+body.theme-halloween .card{border-top:5px solid #f97316;box-shadow:0 18px 40px rgba(0,0,0,.55)}
+body.theme-halloween #hello{background:rgba(0,0,0,.4)!important;border-color:rgba(249,115,22,.55)!important}
+body.theme-halloween .wrap>p{background:#2e1065!important;border-left-color:#f97316!important}
+body.theme-halloween #cd{background:linear-gradient(90deg,#c2410c,#6d28d9);border:2px solid #fb923c}
+body.theme-halloween #hist{background:#140a1f;border-right:2px solid #f97316}
+body.theme-halloween #htog,body.theme-halloween .fu{background:#ea580c}
+body.theme-halloween #mic{background:linear-gradient(135deg,#ea580c,#7c3aed)!important}
+body.theme-halloween .note{color:#475569}
+/* ---- Thanksgiving ---- */
+body.theme-thanksgiving{--g:#b45309;--g2:#d97706;--bg:#fbf3e6;background:linear-gradient(135deg,#431407,#9a3412 55%,#b45309) top/100% 330px no-repeat,var(--bg)}
+body.theme-thanksgiving h1::before{content:"\1F983  "}body.theme-thanksgiving h1::after{content:"  \1F342"}
+body.theme-thanksgiving .card{border-top:5px solid #d97706}
+body.theme-thanksgiving #hello{background:rgba(0,0,0,.25)!important;border-color:rgba(253,186,116,.5)!important}
+body.theme-thanksgiving .wrap>p{background:#7c2d12!important;border-left-color:#fbbf24!important}
+body.theme-thanksgiving #cd{background:linear-gradient(90deg,#9a3412,#b45309);border:2px solid #fbbf24}
+body.theme-thanksgiving #hist{background:#3b1a0a;border-right:2px solid #d97706}
+body.theme-thanksgiving #htog,body.theme-thanksgiving .fu{background:#c2410c}
+body.theme-thanksgiving #mic{background:linear-gradient(135deg,#b45309,#d97706)!important}
+body.theme-thanksgiving .chip{background:#fff3e0;border-color:#f5c48a}
+/* ---- Christmas ---- */
+body.theme-christmas{--g:#b91c1c;--g2:#15803d;--bg:#f2f7f2;background:linear-gradient(135deg,#052e16,#14532d 50%,#991b1b) top/100% 355px no-repeat,var(--bg)}
+body.theme-christmas h1::before{content:"\1F384  "}body.theme-christmas h1::after{content:"  \1F381"}
+body.theme-christmas .card{border-top:5px solid #ca8a04;box-shadow:0 18px 40px rgba(5,46,22,.3)}
+body.theme-christmas #hello{background:rgba(0,0,0,.25)!important;border-color:rgba(250,204,21,.5)!important}
+body.theme-christmas .wrap>p{background:#7f1d1d!important;border-left-color:#facc15!important}
+body.theme-christmas #cd{background:linear-gradient(90deg,#b91c1c,#15803d);border:2px solid #facc15}
+body.theme-christmas #hist{background:#052e16;border-right:2px solid #ca8a04}
+body.theme-christmas #htog,body.theme-christmas .fu{background:#b91c1c}
+body.theme-christmas #mic{background:linear-gradient(135deg,#b91c1c,#15803d)!important}
+body.theme-christmas #fx span{color:#fff;text-shadow:0 0 3px #94a3b8}
+.lights{height:14px;margin:-4px 0 14px;background:radial-gradient(circle,#ef4444 4px,transparent 5px) 0 0/48px 14px,radial-gradient(circle,#22c55e 4px,transparent 5px) 16px 0/48px 14px,radial-gradient(circle,#facc15 4px,transparent 5px) 32px 0/48px 14px;animation:tw 1.6s steps(2) infinite}
+@keyframes tw{50%{filter:brightness(.55)}}@media(prefers-reduced-motion:reduce){.lights{animation:none}}
+@media(max-width:600px){h1{font-size:25px}#cd .n div{min-width:56px}#cd .n b{font-size:20px}}
+/* Halloween intro */
+#intro{position:fixed;inset:0;z-index:50;pointer-events:none;overflow:hidden;background:rgba(10,0,20,.35);animation:infade 5.5s forwards}
+@keyframes infade{0%,85%{opacity:1}100%{opacity:0}}
+#intro .sp{position:absolute;top:0;font-size:38px;text-align:center;animation:drop 5s ease-in-out forwards}
+#intro .sp::before{content:"";position:absolute;left:50%;bottom:100%;width:1px;height:100vh;background:rgba(255,255,255,.7)}
+@keyframes drop{0%{transform:translateY(-60px)}35%{transform:translateY(var(--y))}45%{transform:translateY(calc(var(--y) - 14px))}55%{transform:translateY(var(--y))}85%{transform:translateY(var(--y))}100%{transform:translateY(-80px)}}
+#intro .wave{position:absolute;left:50%;top:100%;transform:translateX(-50%);white-space:nowrap;font:700 15px system-ui;color:#fed7aa;opacity:0;animation:wv 5s forwards}
+@keyframes wv{0%,38%{opacity:0}45%,80%{opacity:1}90%,100%{opacity:0}}
+#intro .cr{position:absolute;bottom:8%;font-size:26px;animation:crawl 5s linear forwards}
+@keyframes crawl{from{left:-40px}to{left:105%}}
+#intro .witch{position:absolute;top:22%;left:-90px;font-size:64px;animation:fly 4.2s .6s ease-in-out forwards;transform:scaleX(-1)}
+@keyframes fly{0%{left:-90px;top:30%}50%{top:14%}100%{left:110%;top:24%}}
+#intro .spk{position:absolute;font-size:18px;opacity:0;animation:spk 1.4s forwards}
+@keyframes spk{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.2) translateY(30px)}}
+#intro .skip{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#fff;font:600 13px system-ui;opacity:.8}
