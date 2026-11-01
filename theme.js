@@ -4,14 +4,14 @@ var tz="America/Chicago",b=document.body;
 function parts(d){var o={};new Intl.DateTimeFormat("en-US",{timeZone:tz,year:"numeric",month:"numeric",day:"numeric"}).formatToParts(d).forEach(function(p){o[p.type]=+p.value});return o}
 function thanksDay(y){var d=new Date(Date.UTC(y,10,1)).getUTCDay();return 1+((4-d+7)%7)+21}
 var now=new Date(),p=parts(now),y=p.year,m=p.month,dd=p.day,th=null;
-if(m===10)th="halloween";else if(m===11)th="thanksgiving";else if(m===12&&dd<=25)th="christmas";
+if(m===10||m===11)th="thanksgiving";else if(m===12&&dd<=25)th="christmas";
 var ov=(location.search.match(/[?&]theme=(\w+)/)||[])[1];
-if(ov){th=/^(halloween|thanksgiving|christmas)$/.test(ov)?ov:null;
+if(ov){th=/^(thanksgiving|christmas)$/.test(ov)?ov:null;
  if(th){m={halloween:10,thanksgiving:11,christmas:12}[th]; if((th==="halloween"&&p.month!==10)||(th==="thanksgiving"&&p.month!==11)||(th==="christmas"&&p.month!==12)){dd=1;if(p.month>m)y++;}}}
 if(!th)return;
 b.classList.add("theme-"+th);
 var cfg={halloween:{day:31,off:"-05:00",to:"Halloween",hi:"Happy Halloween! \uD83C\uDF83",fx:["\uD83E\uDD87","\uD83D\uDC7B","\uD83C\uDF83","\uD83E\uDD87"],dir:"up"},
-thanksgiving:{day:thanksDay(y),off:"-06:00",to:"Thanksgiving",hi:"Happy Thanksgiving! \uD83E\uDD83",after:"\uD83C\uDF42 Thankful for you! Thanks for a great year of teamwork. \uD83E\uDDE1",fx:["\uD83C\uDF42","\uD83C\uDF41","\uD83C\uDF42","\uD83E\uDD67"]},
+thanksgiving:{day:thanksDay(y),off:"-06:00",to:"Thanksgiving",hi:"Happy Thanksgiving! \uD83E\uDD83",after:"\uD83C\uDF42 Thankful for you! Thanks for a great year of teamwork. \uD83E\uDDE1",fx:["\uD83C\uDF42","\uD83C\uDF41","\uD83C\uDF42","\uD83C\uDF41"]},
 christmas:{day:25,off:"-06:00",to:"Christmas",hi:"Merry Christmas! \uD83C\uDF84",fx:["\u2744","\u2745","\u2746","\u2744"]}}[th];
 var mm=th==="halloween"?"10":th==="thanksgiving"?"11":"12";
 var target=new Date(y+"-"+mm+"-"+(cfg.day<10?"0":"")+cfg.day+"T00:00:00"+cfg.off);
@@ -50,7 +50,7 @@ setTimeout(go,fast?800:8000);next();
 function RZ(){var z=zones().filter(function(q){return q[0]>innerWidth/2});return z[0]}
 var rd=document.createElement("div");rd.id="rdeco";rd.setAttribute("aria-hidden","true");
 rd.innerHTML={halloween:'<div class="moon"></div><div class="mbat b1">\uD83E\uDD87</div><div class="mbat b2">\uD83E\uDD87</div><svg class="web" viewBox="0 0 120 120"><g stroke="rgba(255,255,255,.55)" fill="none" stroke-width="1"><path d="M120 0L0 120M120 0L30 120M120 0L0 30M120 0L70 120M120 0L0 70"/><path d="M95 0Q100 20 120 25M70 0Q78 40 120 50M45 0Q55 60 120 75M20 0Q32 82 120 100"/></g></svg><div class="wsp">\uD83D\uDD77\uFE0F</div>',
- thanksgiving:'<div class="tree">\uD83C\uDF33</div><div class="tl l1">\uD83C\uDF42</div><div class="tl l2">\uD83C\uDF41</div><div class="tl l3">\uD83C\uDF42</div><div class="pump">\uD83C\uDF83\uD83C\uDF3D\uD83E\uDD67</div>',
+ thanksgiving:'<div class="tree">\uD83C\uDF33</div><div class="tl l1">\uD83C\uDF42</div><div class="tl l2">\uD83C\uDF41</div><div class="tl l3">\uD83C\uDF42</div><div class="pump">\uD83C\uDF3D\uD83E\uDD67\uD83C\uDF4E</div>',
  christmas:'<div class="lights rl"></div><div class="xtree">\uD83C\uDF84</div><div class="gifts">\uD83C\uDF81\uD83C\uDF81\uD83E\uDDE6</div><div class="star">\u2B50</div>'}[th];
 b.appendChild(rd);
 function place(){var Z=RZ();if(!Z||innerWidth<1100){rd.style.display="none";return}rd.style.display="block";rd.style.left=Z[0]+"px";rd.style.width=(Z[1]-Z[0])+"px"}
@@ -120,7 +120,7 @@ if(th==="halloween"){requestAnimationFrame(wTick);requestAnimationFrame(gwTick);
  setInterval(function(){if(document.hidden)return;if(Date.now()-Wk.lf>30000||!Wk.el||!Wk.el.isConnected){Wk.el=null;Wk.st="hover";Wk.spot=null;Wk.t0=performance.now();requestAnimationFrame(wTick)}},5000)}
 (function nr(){setTimeout(function(){go(1);if(Math.random()<.35)setTimeout(function(){go(1)},1500);nr()},fast?2000:6000+Math.random()*6000)})();
 
-var P={halloween:["Trick or Treat! \uD83C\uDF6C","Boo! \uD83D\uDC7B","Happy Haunting \uD83C\uDF83","Spooky Season \uD83E\uDD87","Eat, Drink & Be Scary \uD83E\uDDD9\u200D\u2640\uFE0F","Got Candy? \uD83C\uDF6D"],thanksgiving:["Gobble Gobble \uD83E\uDD83","Thankful \uD83C\uDF42","Pass the Pie \uD83E\uDD67"],christmas:["Ho Ho Ho \uD83C\uDF85","Merry & Bright \u2728","Let It Snow \u2744\uFE0F"]}[th];
+var P={halloween:["Trick or Treat! \uD83C\uDF6C","Boo! \uD83D\uDC7B","Happy Haunting \uD83C\uDF83","Spooky Season \uD83E\uDD87","Eat, Drink & Be Scary \uD83E\uDDD9\u200D\u2640\uFE0F","Got Candy? \uD83C\uDF6D"],thanksgiving:["Gobble Gobble \uD83E\uDD83","Thankful \uD83C\uDF42","Pass the Pie \uD83E\uDD67","Grateful \uD83E\uDDE1","Happy Harvest \uD83C\uDF3D","Give Thanks \uD83C\uDF41"],christmas:["Ho Ho Ho \uD83C\uDF85","Merry & Bright \u2728","Let It Snow \u2744\uFE0F"]}[th];
 function phrase(){if(innerWidth<1100||matchMedia("(prefers-reduced-motion: reduce)").matches||document.hidden)return;var z=zones();if(!z.length)return;
  var Z=z[Math.floor(Math.random()*z.length)],W=Z[1]-Z[0],e=document.createElement("div"),pw=Math.min(W-20,240);
  e.className="amb phr";e.setAttribute("aria-hidden","true");e.textContent=P[Math.floor(Math.random()*P.length)];
